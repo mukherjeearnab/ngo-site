@@ -1,14 +1,10 @@
 <?php
 include('login_auth.php'); // Includes Login Script
 if(isset($_SESSION['login_user'])){
-	if($_SESSION['login_user'] == 'admin') { 
-		$cookie_name = "user";
-		$cookie_value = $username;
-		setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-		header("location: admin"); // Redirecting To Profile Page
-	}
-	else
-		header("location: home.php"); // Redirecting To Profile Page
+	$cookie_name = "user";
+	$cookie_value = $username;
+	setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+	header("location: dashboard"); // Redirecting To Profile Page
 }
 ?> 
 <!DOCTYPE html>

@@ -1,6 +1,7 @@
 <?php
     session_start(); // Starting Session 
     $error = ''; // Variable To Store Error Message 
+    //echo "testing";
     if (isset($_POST['submit'])) { 
         if (empty($_POST['username']) || empty($_POST['password'])) { 
             $error = "Username or Password is invalid"; 
@@ -15,24 +16,17 @@
             define('DB_USERNAME', "admin");
             define('DB_PASSWORD', 'ASad1234*');
             define('DB_DATABASE', 'sitedb');
-            $conn = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE); 
+            $conn = new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE); 
             
             // SQL query to fetch information of registerd USERS and finds user match. 
-            $query = "SELECT USERNAME, PASSWORD FROM USERS where USERNAME=? AND PASSWORD=? LIMIT 1"; 
+            $query = "SELECT USERNAME FROM USERS where USERNAME='$username' AND PASSWORD=SHA2('$password', 256);"; 
             // To protect MySQL injection for Security purpose 
-            $stmt = $conn->prepare($query); 
-            $stmt->bind_param("ss", $username, $password); 
-            $stmt->execute(); 
-            $stmt->bind_result($username, $password); 
-            $stmt->store_result(); 
-            if($stmt->fetch()) //fetching the contents of the row { 
-            $_SESSION['login_user'] = $username; // Initializing Session
-            if($username == 'admin') { 
-                $cookie_name = "user";
-                $cookie_value = $username;
-                setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-                header("location: admin"); // Redirecting To Profile Page
-            }
+            $reply =  $conn->query($query);
+            //$reply = $reply->fetch_assoc();
+            
+            echo $reply->num_rows;
+            if($reply->num_rows > 0) //fetching the contents of the row { 
+                $_SESSION['login_user'] = $username; // Initializing Session
             else
                 echo $username;//header("location: home.php");
         } 
