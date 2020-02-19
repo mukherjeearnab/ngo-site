@@ -1,0 +1,15 @@
+(sitedb) -> PRINCIPAL DATABASE ON A MYSQL SERVER
+    [USERS] -> CONTAINS CREDENTAILS FOR USERS;
+        +----------+----------+
+        | USERNAME | PASSWORD |
+        +----------+----------+
+        {
+            CREATE COMMAND ->
+                CREATE TABLE USERS (
+                    USERNAME VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_bin,
+                    PASSWORD VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_bin
+                );
+
+            INSERT COMMAND ->
+                INSERT INTO USERS(USERNAME, PASSWORD) VALUES('root', SHA2('1234', 256));
+        }
