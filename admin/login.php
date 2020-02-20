@@ -1,9 +1,9 @@
 <?php
 include('login_auth.php'); // Includes Login Script
 if(isset($_SESSION['login_user'])){
-	$cookie_name = "user";
+	/*$cookie_name = "user";
 	$cookie_value = $username;
-	setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+	setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");*/
 	header("location: dashboard"); // Redirecting To Profile Page
 }
 ?> 
