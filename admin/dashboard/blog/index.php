@@ -45,6 +45,13 @@
                                 $id = $row['ID'];
                                 $ACTION = '<a href="editor.php?id='.$id.'"><i class="fas fa-edit"></i></a>';
 
+                                if($row['ACTIVE'] == 1) 
+                                    $row['ACTIVE'] = '<a style="color: #4CAF50"><i class="fas fa-check-circle"></i> Published</a>';
+                                elseif ($row['ACTIVE'] == 0)
+                                    $row['ACTIVE'] = '<a style="color: #f44336"><i class="fas fa-dumpster-fire"></i> Bin</a>';
+                                else
+                                    $row['ACTIVE'] = '<a style="color: #FF9800"><i class="fab fa-firstdraft"></i> Draft</a>';
+
                                 echo "<tr><td>" . $serial . "</td><td>" . $row["HEADING"]. "</td><td>" . $row["AUTHOR"] . "</td><td>" . $row["CDATE"] . "</td><td>" . $row["ACTIVE"] . "</td><td>" . $ACTION . "</td></tr>";
                                 
                                 ++$serial;
