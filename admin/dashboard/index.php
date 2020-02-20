@@ -26,7 +26,7 @@
         <H1 class="header"><i class="fas fa-digital-tachograph"></i>  <b>SiteManager</b> Dashboard</H1>
         <section class="section1">
             <div class="row">
-                <div class="col-md-5 px-5 my-3 mx-auto col-xs-12 box blogm">
+                <div class="col-md-5 px-5 my-3 mx-auto col-xs-12 box blogm" onclick="location.href='blog'">
                     <h2 class="box-header"><i class="fas fa-blog"></i>  Blog Manager</h2>
                     <p class="box-content"><b>Active Posts</b> : </p>
                     <p class="box-content"><b>Draft</b> : </p>

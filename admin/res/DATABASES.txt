@@ -15,21 +15,23 @@
         }
 
     [BLOGS] -> CONTAINS CREDENTAILS FOR USERS;
-        +-----------+---------+------+-------+--------+--------+-------+
-        | ID (HASH) | HEADING | BODY | CDATE | AUTHOR | ACTIVE | DRAFT |
-        +-----------+---------+------+-------+--------+--------+-------+
+        +-----------+---------+------+-------+--------+--------+
+        | ID (HASH) | HEADING | BODY | CDATE | AUTHOR | ACTIVE |
+        +-----------+---------+------+-------+--------+--------+
         {
             CREATE COMMAND ->
-                CREATE TABLE USERS (
+                CREATE TABLE BLOGS (
                     ID VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_bin,
                     HEADING VARCHAR(200),
                     BODY VARCHAR(5000),
                     CDATE DATE,
                     AUTHOR VARCHAR(30),
-                    ACTIVE INT(1),
-                    DRAFT INT(1)
+                    ACTIVE INT(1)
                 );
 
             INSERT COMMAND ->
-                INSERT INTO USERS(ID, HEADING, BODY, CDATE, AUTHOR, ACTIVE, DRAFT) VALUES('root', SHA2('1234', 256));
+                INSERT INTO USERS(ID, HEADING, BODY, CDATE, AUTHOR, ACTIVE) VALUES(SHA2('1234', 256));
+
+            RULES ->
+                1) ACTIVE = 1, BIN = 0, DRAFT = -1
         }
