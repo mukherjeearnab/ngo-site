@@ -7,7 +7,7 @@
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <link rel="stylesheet" href="res/css/index.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -17,16 +17,19 @@
         <section class="section1">
             <div class="row">
                 <a class="new-post" style="float: left;" href=".."><i class="fas fa-arrow-circle-left"></i> Dashboard</a>
-                <a class="new-post" href="editor.php"><i class="fas fa-plus-circle"></i> New Post</a>
+                <a class="new-post" id="uToggle"><i class="fas fa-upload"></i> Upload Image</a>
+                <form style="float: right;" action="handler/imgUpload.php" id="uploadF" method="post" enctype="multipart/form-data">
+                    <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
+                    <input type="submit" value="Upload Image" name="submit">
+                </form>
             </div>
             <div class="row">
-                <table id="BLOGS">
+                <table id="GALLERY">
                     <tr>
                         <th>SL</Th>
-                        <th>TITLE</th> 
-                        <th>AUTHOR</th> 
-                        <th>DATE</th>
-                        <th>STATUS</th>
+                        <th>IMAGE</th> 
+                        <th>SIZE (KB)</th>
+                        <th>UPLOAD DATE</th>
                         <th>ACTION</th>
                     </tr>
                     <?php
@@ -37,23 +40,18 @@
 
                         $serial = 1;
                         $conn = mysqli_connect("localhost", "admin", "ASad1234*", "sitedb");
-                        $QUERY = "SELECT * FROM BLOGS ORDER BY CDATE DESC;";
+                        $QUERY = "SELECT * FROM IMGS ORDER BY UTIME DESC;";
                         $ROW =  $conn->query($QUERY);
 
                         if ($ROW->num_rows > 0) {
                             // output data of each row
                             while($row = $ROW->fetch_assoc()) {
-                                $id = $row['ID'];
-                                $ACTION = '<a href="editor.php?id='.$id.'"><i class="fas fa-edit"></i> Edit Post</a>';
+                                $IMG = '<img class="image-v" src="res/uploads/'.$row['FNAME'].'" />';
 
-                                if($row['ACTIVE'] == 1) 
-                                    $row['ACTIVE'] = '<a style="color: #4CAF50"><i class="fas fa-check-circle"></i> Published</a>';
-                                elseif ($row['ACTIVE'] == 0)
-                                    $row['ACTIVE'] = '<a style="color: #f44336"><i class="fas fa-dumpster-fire"></i> Bin</a>';
-                                else
-                                    $row['ACTIVE'] = '<a style="color: #FF9800"><i class="fab fa-firstdraft"></i> Draft</a>';
+                                $row['SIZE'] = $row['SIZE']/1024 . ' KB';
+                                $LINK = '<a class="img-link" target="blank" href="res/uploads/'.$row['FNAME'].'" /><i class="fas fa-external-link-alt"></i></a>';
 
-                                echo "<tr><td>" . $serial . "</td><td class='title'>" . $row["HEADING"]. "</td><td>" . $row["AUTHOR"] . "</td><td>" . $row["CDATE"] . "</td><td>" . $row["ACTIVE"] . "</td><td>" . $ACTION . "</td></tr>";
+                                echo "<tr><td>" . $serial . "</td><td>" . $IMG . "</td><td>" . $row["SIZE"] . "</td><td>" . $row["UTIME"] . "</td><td>" . $LINK . "</td></tr>";
                                 
                                 ++$serial;
                             }
@@ -63,5 +61,13 @@
                 </table>
             </div>
         </section>
+
+        <script>
+            $(document).ready(function() {
+                $("#uToggle").click(function(){
+                    $("#uploadF").toggle("slow");
+                });
+            });
+        </script>
     </body>
 </html>

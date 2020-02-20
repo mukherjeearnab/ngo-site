@@ -24,7 +24,7 @@
             $query = "UPDATE BLOGS SET HEADING='".addslashes($HEADING)."', BODY='".addslashes($BODY)."' WHERE ID='$ID';";
             $result = $conn->query($query);
             echo $query;
-            //header("location: ..");
+            header("location: ..");
         }
     }
 

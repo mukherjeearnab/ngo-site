@@ -33,7 +33,7 @@
                     <p class="box-content"><b>Draft</b> : </p>
                     <p><b>Latest Post</b> : </p>
                 </div>
-                <div class="col-md-5 px-5 my-3 mx-auto col-xs-12 box ram">
+                <div class="col-md-5 px-5 my-3 mx-auto col-xs-12 box ram" onclick="location.href='gallery'">
                     <h2 class="box-header"><i class="fas fa-images"></i>  Gallery Manager</h2>
                     <p class="box-content"><b>Total Images</b> : </p>
                     <p class="box-content"><b>Media Size</b> : </p>
