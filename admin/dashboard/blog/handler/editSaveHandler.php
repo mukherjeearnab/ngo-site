@@ -18,13 +18,13 @@
             $query = "INSERT INTO BLOGS(ID, HEADING, BODY, CDATE, AUTHOR, ACTIVE) VALUES(SHA2('$BODY.$HEADING', 256), '$HEADING', '$BODY', NOW(), '$AUTHOR', 1);";
             echo $query;
             $result = $conn->query($query);
-            header("location: ..");
+            //header("location: ..");
         }
         else {
             $query = "UPDATE BLOGS SET HEADING='$HEADING', BODY='$BODY' WHERE ID='$ID';";
             $result = $conn->query($query);
             echo $query;
-            header("location: ..");
+            //header("location: ..");
         }
     }
 

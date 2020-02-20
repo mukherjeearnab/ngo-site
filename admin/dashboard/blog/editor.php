@@ -41,7 +41,7 @@
             <div class="row">
                 <form class="submitF" id="editorDump" method="POST" action="handler/editSaveHandler.php">
                     <input class="text-inp" id="ID" type="hidden" value="<?php if(isset($_GET['id'])) echo $result['ID']; else echo 'null'; ?>" name="ID" required>
-                    <input class="text-inp" id="HEADING" type="text" value="<?php if(isset($_GET['id'])) echo $result['HEADING']; ?>" name="HEADING" placeholder="Blog Title here ...." required>
+                    <input class="text-inp" id="HEADING" type="text" maxlength="200" value="<?php if(isset($_GET['id'])) echo $result['HEADING']; ?>" name="HEADING" placeholder="Blog Title here ...." required>
                     <textarea class="body-text" id="REASON" name="BODY" cols="110" rows="18" maxlength="4999" placeholder="Blog Post Body here...." required><?php if(isset($_GET['id'])) echo $result['BODY']; ?></textarea>
                 </form>
             </div>

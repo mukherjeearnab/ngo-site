@@ -43,7 +43,7 @@
                             // output data of each row
                             while($row = $ROW->fetch_assoc()) {
                                 $id = $row['ID'];
-                                $ACTION = '<a href="editor.php?id='.$id.'"><i class="fas fa-edit"></i></a>';
+                                $ACTION = '<a href="editor.php?id='.$id.'"><i class="fas fa-edit"></i> Edit Post</a>';
 
                                 if($row['ACTIVE'] == 1) 
                                     $row['ACTIVE'] = '<a style="color: #4CAF50"><i class="fas fa-check-circle"></i> Published</a>';
@@ -52,7 +52,7 @@
                                 else
                                     $row['ACTIVE'] = '<a style="color: #FF9800"><i class="fab fa-firstdraft"></i> Draft</a>';
 
-                                echo "<tr><td>" . $serial . "</td><td>" . $row["HEADING"]. "</td><td>" . $row["AUTHOR"] . "</td><td>" . $row["CDATE"] . "</td><td>" . $row["ACTIVE"] . "</td><td>" . $ACTION . "</td></tr>";
+                                echo "<tr><td>" . $serial . "</td><td class='title'>" . $row["HEADING"]. "</td><td>" . $row["AUTHOR"] . "</td><td>" . $row["CDATE"] . "</td><td>" . $row["ACTIVE"] . "</td><td>" . $ACTION . "</td></tr>";
                                 
                                 ++$serial;
                             }
