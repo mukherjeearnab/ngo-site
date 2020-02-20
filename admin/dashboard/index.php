@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-5 px-5 my-3 mx-auto col-xs-12 box hdd">
                     <h2 class="box-header"><i class="fas fa-users"></i>  Accounts Manager</h2>
-                    <p class="box-content"><b>Current User</b> : </p>
+                    <p class="box-content"><b>Current User</b> : <?php echo $username; ?></p>
                     <p class="box-content"><b>Last Edit</b> : </p>
                     <p class="box-content"><b>Total Accounts</b> : </p>
                 </div>
