@@ -7,6 +7,7 @@
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="res/css/index.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -15,7 +16,7 @@
         <H1 class="header"><i class="fas fa-blog"></i>  Blogs Manager</H1>
         <section class="section1">
             <div class="row">
-                <a class="new-post"><i class="fas fa-plus-circle"></i> New Post</a>
+                <a class="new-post" href="editor.php"><i class="fas fa-plus-circle"></i> New Post</a>
             </div>
             <div class="row">
                 <table id="BLOGS">
@@ -28,6 +29,11 @@
                         <th>ACTION</th>
                     </tr>
                     <?php
+                        session_start();
+                        if(!isset($_SESSION['login_user'])){ 
+                            header("location: .."); // Redirecting To Home Page 
+                        }
+
                         $serial = 1;
                         $conn = mysqli_connect("localhost", "admin", "ASad1234*", "sitedb");
                         $QUERY = "SELECT * FROM BLOGS ORDER BY CDATE DESC;";
@@ -36,7 +42,8 @@
                         if ($ROW->num_rows > 0) {
                             // output data of each row
                             while($row = $ROW->fetch_assoc()) {
-                                $ACTION = "Hihi";
+                                $id = $row['ID'];
+                                $ACTION = '<a href="editor.php?id='.$id.'"><i class="fas fa-edit"></i></a>';
 
                                 echo "<tr><td>" . $serial . "</td><td>" . $row["HEADING"]. "</td><td>" . $row["AUTHOR"] . "</td><td>" . $row["CDATE"] . "</td><td>" . $row["ACTIVE"] . "</td><td>" . $ACTION . "</td></tr>";
                                 
