@@ -13,7 +13,7 @@
         $ACTIVE = $_POST['ACTIVE'];
 
         if($_POST['ID'] == 'null') {
-            $query = "INSERT INTO BLOGS(ID, HEADING, BODY, CDATE, AUTHOR, ACTIVE) VALUES(SHA2('$BODY.$HEADING', 256), '$HEADING', '$BODY', NOW(), '$AUTHOR', -1);";
+            $query = "INSERT INTO BLOGS(ID, HEADING, BODY, CDATE, AUTHOR, ACTIVE) VALUES(SHA2('".addslashes($BODY.$HEADING)."', 256), '".addslashes($HEADING)."', '".addslashes($BODY)."', NOW(), '$AUTHOR', -1);";
             $result = $conn->query($query);
             header("location: ..");
         }

@@ -13,7 +13,7 @@
         $ACTIVE = $_POST['ACTIVE'];
 
         if(true) {
-            $query = "UPDATE BLOGS SET HEADING='$HEADING', BODY='$BODY', ACTIVE=0 WHERE ID='$ID';";
+            $query = "UPDATE BLOGS SET HEADING='".addslashes($HEADING)."', BODY='".addslashes($BODY)."', ACTIVE=0 WHERE ID='$ID';";
             $result = $conn->query($query);
             header("location: ..");
         }
