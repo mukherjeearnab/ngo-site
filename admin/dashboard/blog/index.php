@@ -16,6 +16,7 @@
         <H1 class="header"><i class="fas fa-blog"></i>  Blogs Manager</H1>
         <section class="section1">
             <div class="row">
+                <a class="new-post" style="float: left;" href=".."><i class="fas fa-arrow-circle-left"></i> Dashboard</a>
                 <a class="new-post" href="editor.php"><i class="fas fa-plus-circle"></i> New Post</a>
             </div>
             <div class="row">

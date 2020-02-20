@@ -34,6 +34,7 @@
         <H1 class="header"><i class="fas fa-edit"></i>  Blogs Editor</H1>
         <section class="section1">
             <div class="row">
+                <a class="new-post" style="float: left;" href="."><i class="fas fa-arrow-circle-left"></i> Blog Manager</a>
                 <a class="save-post" onclick="document.getElementById('editorDump').submit();"><i class="far fa-save"></i> Save & Publish</a>
                 <?php if(!isset($_GET['id'])) echo '<a class="draft-post" onclick="draftPost();"><i class="fab fa-firstdraft"></i> Save As Draft</a>';?>
                 <?php if(isset($_GET['id'])) echo '<a class="delete-post" onclick="binPost();"><i class="far fa-trash-alt""></i> Send to Bin</a>';?>
