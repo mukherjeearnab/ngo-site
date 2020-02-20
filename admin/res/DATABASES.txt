@@ -13,3 +13,23 @@
             INSERT COMMAND ->
                 INSERT INTO USERS(USERNAME, PASSWORD) VALUES('root', SHA2('1234', 256));
         }
+
+    [BLOGS] -> CONTAINS CREDENTAILS FOR USERS;
+        +-----------+---------+------+-------+--------+--------+-------+
+        | ID (HASH) | HEADING | BODY | CDATE | AUTHOR | ACTIVE | DRAFT |
+        +-----------+---------+------+-------+--------+--------+-------+
+        {
+            CREATE COMMAND ->
+                CREATE TABLE USERS (
+                    ID VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_bin,
+                    HEADING VARCHAR(200),
+                    BODY VARCHAR(5000),
+                    CDATE DATE,
+                    AUTHOR VARCHAR(30),
+                    ACTIVE INT(1),
+                    DRAFT INT(1)
+                );
+
+            INSERT COMMAND ->
+                INSERT INTO USERS(ID, HEADING, BODY, CDATE, AUTHOR, ACTIVE, DRAFT) VALUES('root', SHA2('1234', 256));
+        }
