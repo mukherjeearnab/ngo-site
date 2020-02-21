@@ -40,8 +40,9 @@
     font-size: 25px;
     border-color: transparent;
     padding: 5px 20px;
-    border-radius: 100px;
-    background-color: #cfcfcf;
+    border-radius: 10px;
+    background-color: #efefef;
+    border: 3px solid #92C5F2;
     transition-duration: 0.2s;
 }
 
@@ -61,8 +62,13 @@
     transform: scale(1.08);
 }
 
+.loginText:hover {
+    background-color: #fff;
+}
+
 .loginText:focus {
-    width: 75%;
+    border: 3px solid #218AE5;
+    background-color: #fff;
 }
 
 #body {
