@@ -1,0 +1,110 @@
+body {
+    margin: 0px;
+}
+
+.header {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(to right, #FEDB3F, #FD855A);
+    /*background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);*/ 
+    text-align: center;
+    margin: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff; 
+}
+
+.section1 {
+    width: 80%;
+    margin: auto;
+}
+
+.new-post {
+    font-size: 18px;
+    padding: 10px 30px;
+    color: #fff;
+    background: #FCAE4D;
+    border-radius: 20px;
+    float: right;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+#GALLERY {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+}
+
+#GALLERY td, #GALLERY th {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+#GALLERY tr:nth-child(even){background-color: #f2f2f2;}
+
+#GALLERY tr:hover {background-color: #ddd;}
+
+#GALLERY th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: left;
+    background-color: #FCAE4D;
+    color: white;
+}
+
+#uploadF {
+    padding: 10px;
+    display: none;
+}
+
+#uploadF input {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #FCAE4D;
+    color: white;
+    border: none;
+    float: right;
+    margin-left: 10px;
+}
+
+.title {
+    max-width: 170px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.image-v {
+    max-height: 100px;
+}
+
+.img-link {
+    color: #FCAE4D;
+    font-size: 50px;
+}
+
+.del-link {
+    color: #f44336;
+    font-size: 50px;
+}
+
+.newp {
+	font-size: 20px;
+	padding: 0px 5px;
+}
+
+.pastedata {
+	width: 100%;
+	border: 3px solid;
+  	border-radius: 5px;
+  	border-color: #FCAE4D;
+  	overflow: hidden;
+  	padding: 5px;
+  	overflow-y: scroll;
+  	box-sizing: border-box;
+  	font-family: 'Roboto Mono', monospace;
+}

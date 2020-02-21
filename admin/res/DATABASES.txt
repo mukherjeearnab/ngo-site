@@ -51,3 +51,22 @@
             INSERT COMMAND ->
                 INSERT INTO IMGS(FNAME, SIZE, UTIME) VALUES('root', 123, NOW());
         }
+
+    [FORMS] -> CONTAINS CONTACT FORM DATABASE;
+        +----+------+-------+---------+---------+-------+
+        | ID | NAME | EMAIL | SUBJECT | MESSAGE | SDATE |
+        +----+------+-------+---------+---------+-------+
+        {
+            CREATE COMMAND ->
+                CREATE TABLE FORMS (
+                    ID VARCHAR(32) CHARACTER SET utf8 COLLATE utf8_bin,
+                    NAME VARCHAR(40),
+                    EMAIL VARCHAR(50),
+                    SUBJECT VARCHAR(200),
+                    MESSAGE VARCHAR(3000),
+                    SDATE DATETIME
+                );
+
+            INSERT COMMAND ->
+                INSERT INTO FORMS(ID, NAME, EMAIL, SUBJECT, MESSAGE, SDATE) VALUES('ABCD', 'NAME', 'EMAIL', 'SUBJECT', 'MESSAGE', NOW());
+        }

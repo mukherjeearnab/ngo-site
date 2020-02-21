@@ -2,10 +2,11 @@
 <?php
     $time = time();
     $filename = basename($_FILES["fileToUpload"]["name"]);
-    $filehash = hash('adler32', $time.$filename);
+    $filesize = $_FILES["fileToUpload"]["size"];
+    $filehash = hash('adler32', $time.$filename.$filesize);
     $ext = pathinfo($filename);
     $filepath = $filehash.'.'.$ext['extension'];
-    $filesize = $_FILES["fileToUpload"]["size"];
+    
     
     $target_dir = "../res/uploads/";
 

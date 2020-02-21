@@ -40,7 +40,7 @@
                     <p class="box-content"><b>Last Upload</b> : </p>
                 </div>
                 
-                <div class="col-md-5 px-5 my-3 mx-auto col-xs-12 box ter">
+                <div class="col-md-5 px-5 my-3 mx-auto col-xs-12 box ter" onclick="location.href='contact'">
                     <h2 class="box-header"><i class="fab fa-wpforms"></i>  Contact Forms</h2>
                     <p>Check & Manage Contact Forms</p>
                     <p class="box-content"><b>Last Submit</b> : </p>
