@@ -46,7 +46,7 @@
                     <p class="box-content"><b>Last Submit</b> : </p>
                     <p class="box-content"><b>Total Forms</b> : </p>
                 </div>
-                <div class="col-md-5 px-5 my-3 mx-auto col-xs-12 box hdd">
+                <div class="col-md-5 px-5 my-3 mx-auto col-xs-12 box hdd"  onclick="location.href='account'">
                     <h2 class="box-header"><i class="fas fa-users"></i>  Accounts Manager</h2>
                     <p class="box-content"><b>Current User</b> : <?php echo $username; ?></p>
                     <p class="box-content"><b>Last Edit</b> : </p>
