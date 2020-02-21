@@ -49,7 +49,9 @@
                                 $IMG = '<img class="image-v" src="res/uploads/'.$row['FNAME'].'" />';
 
                                 $row['SIZE'] = $row['SIZE']/1024 . ' KB';
-                                $LINK = '<a class="img-link" target="blank" href="res/uploads/'.$row['FNAME'].'" /><i class="fas fa-external-link-alt"></i></a>';
+                                $L2 = '<a class="del-link" target="blank" value="'.$row['FNAME'].'" onclick="deleteIMG(\''.$row['FNAME'].'\');"><i class="fas fa-trash-alt"></i></a>';
+                                $SP = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+                                $LINK = '<a class="img-link" target="blank" href="res/uploads/'.$row['FNAME'].'" /><i class="fas fa-external-link-alt"></i></a>'.$SP.$L2;
 
                                 echo "<tr><td>" . $serial . "</td><td>" . $IMG . "</td><td>" . $row["SIZE"] . "</td><td>" . $row["UTIME"] . "</td><td>" . $LINK . "</td></tr>";
                                 
@@ -68,6 +70,15 @@
                     $("#uploadF").toggle("slow");
                 });
             });
+
+            function deleteIMG(img) {
+                var url = 'handler/delIMG.php?id=' + img;
+
+                var r = confirm("Are you sure you want to DELETE " + img + "?");
+                if (r == true)
+                    window.location.href = url;
+                //console.log(url);
+            }
         </script>
     </body>
 </html>
