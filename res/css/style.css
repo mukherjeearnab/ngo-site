@@ -311,32 +311,32 @@ header {
 }
 
 /*---------------------------------------------------------------*/
-/*MEALS*/
+/*GALLERY*/
 /*---------------------------------------------------------------*/
 
-.section-meals{
-    padding:0;
+.section-gallery{
+    padding: 0px;
 }
 
-.meals-showcase {
+.gallery-showcase {
     list-style: none;
     width: 100%;
 }
 
-.meals-showcase li{
+.gallery-showcase li{
     display: block;
     float:left;
     width:25%;
 }
 
-.meal-photo{
+.gallery-photo{
     width: 100%;
     margin:0;
     overflow: hidden;
     background:#000;
 }
 
-.meal-photo img{
+.gallery-photo img{
     display: block;
     opacity: 0.7;
     width: 100%;
@@ -349,7 +349,7 @@ header {
     transition: transform 1s, opacity 1s, -webkit-transform 1s;
 }
 
-.meal-photo img:hover{
+.gallery-photo img:hover{
     display: block;
     opacity: 1;
     width: 100%;
@@ -363,8 +363,13 @@ header {
 /*HOW IT WORKS*/
 /*---------------------------------------------------------------*/
 
-.section-steps{
+.section-mission{
     background-color: #f4f4f4;
+}
+
+.section-mission p {
+    font-size: 30px;
+    margin: 20px 10px;
 }
 
 .step-box:first-child{
@@ -417,6 +422,10 @@ header {
 /*---------------------------------------------------------------*/
 /*Cities*/
 /*---------------------------------------------------------------*/
+
+.section-about {
+    background-color: #f4f4f4;
+}
 
 .box img{
     width: 100%;
@@ -683,4 +692,35 @@ footer p{
 .js--wp-2 .animated,
 .js--wp-3 .animated {
     opacity: 1;
+}
+
+/*---------------------------------------------------------------*/
+/*GALLERY SLIDER*/
+/*---------------------------------------------------------------*/
+
+#slider {
+    margin: 5px auto;
+    width: 60vw;
+    height: auto;
+    overflow: hidden;
+}
+
+#slider .slides {
+    display: block;
+    width: 16000px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+#slider .slide {
+    float: left;
+    list-style-type: none;
+    width: 60vw;
+    height: auto;
+}
+
+#slider img {
+    width: 100%;
+    height: auto; 
 }
