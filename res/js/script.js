@@ -129,6 +129,7 @@ $(function() {
   var $slider = $('#slider');
   var $slideContainer = $('.slides', $slider);
   var $slides = $('.slide', $slider);
+  //console.log($slides);
 
   var interval;
 

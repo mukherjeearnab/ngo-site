@@ -42,7 +42,7 @@
                     <h2 class="box-header"><i class="fas fa-user-plus"></i>  Add User</h2>
                     <form class="target2" method="POST" id="passForm" action="handler/addUser.php" style="display: none;">
                         <p class="para"><b>Username</b> : <input  class="textInp" name="user" type="text" placeholder="Username"></p>
-                        <p class="para"><b>Password</b> : <input  class="textInp" name="pass" type="password" placeholder="Password"></p>
+                        <p class="para"><b>Password</b> : <input  class="textInp" name="pass" type="text" placeholder="Password"></p>
                         <input class="btn2" type="submit" value="Add User">
                     </form>
                 </div>

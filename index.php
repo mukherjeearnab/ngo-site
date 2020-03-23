@@ -36,7 +36,7 @@
             </nav>
             <div class="hero-text-box">
                 <h1>You Make a Difference…<br>We Make It Easier.</h1>
-                <a class="btn btn-full js--scroll-to-plans" href="#">Blog</a>
+                <a class="btn btn-full js--scroll-to-plans" href="#">Projects</a>
                 <a class="btn btn-ghost js--scroll-to-start" href ="#">Donate</a>    
             </div>
         </header>
@@ -58,12 +58,20 @@
             <div class="row">
                 <div id="slider">
                     <ul class="slides">
-                        <li class="slide"><img src="res/img/1.png"></li>
-                        <li class="slide"><img src="res/img/2.png"></li>
-                        <li class="slide"><img src="res/img/3.png"></li>
-                        <li class="slide"><img src="res/img/4.png"></li>
-                        <li class="slide"><img src="res/img/5.png"></li>
-                        <li class="slide"><img src="res/img/6.png"></li>
+                        <?php 
+                            $conn = mysqli_connect("localhost", "admin", "ASad1234*", "sitedb");
+                            $QUERY = "SELECT * FROM IMGS ORDER BY UTIME DESC LIMIT 10;";
+                            $ROW =  $conn->query($QUERY);
+    
+                            if ($ROW->num_rows > 0) {
+                                // output data of each row
+                                while($row = $ROW->fetch_assoc()) {
+                                    $IMG = '<img src="./admin/dashboard/gallery/res/uploads/'.$row['FNAME'].'" />';
+                                    echo "<li class=\"slide\">" . $IMG;
+                                }
+                            } else { echo "0 results"; }
+                            $conn->close();
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -131,7 +139,7 @@
                 <h2>We're happy to hear from you!</h2>
             </div>
             <div class="row">
-                <form method="POST" action="#" class="contact-form">
+                <form method="POST" action="./handler/contactForm.php" class="contact-form">
                     <div class="row">
                         <div class="col span-1-of-3">
                             <label>Name</label>
@@ -173,7 +181,7 @@
                 <div class="col span-1-of-2">
                     <ul class="footer-nav ">
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="admin" target="blank">Login</a></li>
                     </ul>
                 </div>
                 <div class="col span-1-of-2">

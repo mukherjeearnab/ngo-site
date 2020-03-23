@@ -75,7 +75,7 @@
                     <p class="box-content"><b>Current User</b> : <?php echo $username; ?></p>
                     <p class="box-content"><b>Total Accounts</b> : <?php echo $aReply1; ?></p>
                 </div>
-                <div class="col-md-5 px-5 my-3 mx-auto col-xs-12 box reb" onclick="reboot();">
+                <div class="col-md-5 px-5 my-3 mx-auto col-xs-12 box reb" onclick="location.href='sett'">
                     <h2 class="box-header"><i class="fas fa-cogs"></i>  Settings</h2>
                     <p>Modify settings for the site.</p>
                     <p><i class="fas fa-exclamation-triangle"></i> Proceed with caution.</p>
